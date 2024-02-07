@@ -10,29 +10,23 @@
 </body>
 <script src="https://unpkg.com/smtp.js/dist/smtp.min.js"></script>
 <script>
-    const email = {
-  from: 'test@gmail.com',
-  to: 'test@gmail.com',
-  subject: 'Test email',
-  text: 'This is a test email sent from the browser'
-}
-smtp.sendMail(email)
-  .then(info => console.log(info))
-  .catch(err => console.error(err))
-
-
- const credentials = {
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: 'test@gmail.com',
-    pass: 'eazea'
-  }
-}
-smtp.connect(credentials)
-  .then(info => {
-    // connected, credentials OK
-  })
+function sendEmail() {
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "test@gmail.com",
+            Password: "test",
+            To: 'kevin.tirouvingadessa@gmail.com',
+            From: "test@gmail.com",
+            Subject: "Test email",
+            Body: "Hello, this is a test email sent from SMTP.js",
+        })
+        .then(function (message) {
+            alert("Mail sent successfully");
+        })
+        .catch(function (error) {
+            console.error("Error occurred while sending email:", error.message);
+            alert("Failed to send email. Please check console for error details.");
+        });
+    }
 </script>
 </html>
