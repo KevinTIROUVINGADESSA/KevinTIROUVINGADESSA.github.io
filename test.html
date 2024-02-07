@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="https://unpkg.com/smtp.js/dist/smtp.min.js"></script>
+<script>
+    const email = {
+  from: 'test@gmail.com',
+  to: 'test@gmail.com',
+  subject: 'Test email',
+  text: 'This is a test email sent from the browser'
+}
+smtp.sendMail(email)
+  .then(info => console.log(info))
+  .catch(err => console.error(err))
+
+
+ const credentials = {
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'test@gmail.com',
+    pass: 'eazea'
+  }
+}
+smtp.connect(credentials)
+  .then(info => {
+    // connected, credentials OK
+  })
+</script>
+</html>
